@@ -1,0 +1,10 @@
+/* eslint-disable prettier/prettier */
+import { IsNotEmpty } from 'class-validator';
+// 마커를 생성할 때 받을 데이터 타입
+export class CreateAccountInfoDto {
+  @IsNotEmpty()
+  id: string;
+
+  @IsNotEmpty()
+  pw: string;
+}
