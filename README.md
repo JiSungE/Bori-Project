@@ -178,6 +178,10 @@
 
 <br>
 
+# 시연영상
+
+[시연영상](https://drive.google.com/file/d/1eI8wDaVLkFHD3TvB2lhorU7VeUC5Rgv9/view?usp=share_link)
+
 [typescript]: /readImage/icons8-typescript
 [react]: /images/stack/react.svg
 [node]: /images/stack/node.svg
