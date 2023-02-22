@@ -2,11 +2,16 @@
 
 <p align="center">
   <br>
-  <img src="./images/common/logo-sample.jpeg">
+  <img src="./readImage/KakaoTalk_20230222_141945384.png">
   <br>
 </p>
 
 목차
+1. 프로젝트 소개
+2. 팀원 소개
+3. 기술 스택
+4. 구현 기능
+5. 배운 점 & 아쉬운 점
 
 ## 프로젝트 소개
 
@@ -49,8 +54,6 @@ GIF Images
 <br>
 
 ## 라이센스
-
-MIT &copy; [NoHack](mailto:lbjp114@gmail.com)
 
 <!-- Stack Icon Refernces -->
 
