@@ -9,7 +9,7 @@
 목차
 1. 프로젝트 소개
 2. 팀원 소개
-3. 기술 스택
+3. 개발 
 4. 구현 기능
 5. 배운 점 & 아쉬운 점
 
@@ -43,7 +43,7 @@
 
 | Python | TypeScript |  Dart   |  C#   |  
 | :--------: | :--------: | :------: | :-----: | 
-|   ![js]    |   ![ts]    | ![react] | ![node] | 
+|   ![js]    |   ![typescript]    | ![react] | ![node] | 
 
 ### Framework
 
@@ -78,7 +78,7 @@
 
 <!-- Stack Icon Refernces -->
 
-[ts]: /readImage/icons8-RN.svg
+[typescript]: /readImage/icons8-typescript
 [react]: /images/stack/react.svg
 [node]: /images/stack/node.svg
 [react-native]: /readImage/icons8-RN.svg
