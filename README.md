@@ -9,7 +9,7 @@
 목차
 1. 프로젝트 소개
 2. 팀원 소개
-3. 기술 스택
+3. 개발 
 4. 구현 기능
 5. 배운 점 & 아쉬운 점
 
@@ -43,13 +43,13 @@
 
 | Python | TypeScript |  Dart   |  C#   |  
 | :--------: | :--------: | :------: | :-----: | 
-|   ![js]    |   ![ts]    | ![react] | ![node] | 
+|   ![js]    |   ![typescript]    | ![react] | ![node] | 
 
 ### Framework
 
 | React-Native | Flutter |  NestJS   |  Django   | C# Winform |
 | :--------: | :--------: | :------: | :-----: | :------: |
-|   ![react-native]    |   ![ts]    | ![react] | ![node] | fdaffs   |
+|   ![react-native]    |   ![ts]    | ![react] | ![node] | Winform   |
 
 
 <br>
@@ -78,10 +78,10 @@
 
 <!-- Stack Icon Refernces -->
 
-[js]: /images/stack/javascript.svg
-[ts]: /images/stack/typescript.svg
+[typescript]: /readImage/icons8-typescript
 [react]: /images/stack/react.svg
 [node]: /images/stack/node.svg
-[react-native]: https://icons8.com/icon/58811/%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C%EC%97%90-%EB%B0%98%EC%9D%91%ED%95%98%EB%8B%A4
+[react-native]: /readImage/icons8-RN.svg
+
 
 
