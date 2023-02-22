@@ -55,14 +55,14 @@
   학교의 소식들을 빠르게 확인하는 메인 페이지
 <p align="center">
   <br>
-  <img src="./readImage/mainpage">
+  <img src="./readImage/mainpage.jpg">
   <br>
 </p>
 ### 챗봇 페이지
   사용자의 질문에 학습된 정보를 기반으로 답변하는 챗봇
   <p align="center">
   <br>
-  <img src="./readImage/chatbotpage">
+  <img src="./readImage/chatbotpage.jpg">
   <br>
 </p>
 
@@ -70,7 +70,7 @@
   여러 부가적인 기능으로 학교 시설들의 정보를 한 눈에 확인하는 지도 페이지
     <p align="center">
   <br>
-  <img src="./readImage/mappage">
+  <img src="./readImage/mappage.jpg">
   <br>
 </p>
 
@@ -78,12 +78,12 @@
   내 위치에서 건물의 대략적인 방향과 건물의 층별 구조도를 확인 할 수 있는 AR기능
       <p align="center">
   <br>
-  <img src="./readImage/locationAR">
+  <img src="./readImage/locationAR.jpg">
   <br>
 </p>
     <p align="center">
   <br>
-  <img src="./readImage/AnchorsAR">
+  <img src="./readImage/AnchorsAR.jpg">
   <br>
 </p>
   
