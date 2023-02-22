@@ -6,6 +6,8 @@
   <br>
 </p>
 
+[시연영상](https://drive.google.com/file/d/1eI8wDaVLkFHD3TvB2lhorU7VeUC5Rgv9/view?usp=share_link)
+
 목차
 1. 프로젝트 소개
 2. 팀원 소개
