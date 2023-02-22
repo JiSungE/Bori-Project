@@ -126,6 +126,12 @@
 
 ## 구조도
 
+  </p>
+    <p align="center">
+  <br>
+  <img src="./readImage/arch.png">
+  <br>
+</p>
 
 
 ## 느낀 점 & 배운 점
