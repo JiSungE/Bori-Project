@@ -15,12 +15,10 @@
 
 ## 프로젝트 소개
 
-<p align="justify">
-프로젝트 개요/동기
-</p>
+## 팀원 소개
 
-<p align="center">
-GIF Images
+<p align="justify">
+팀원 소개
 </p>
 
 | 김지성 | 신동헌 |  염원   |  백성호           |
@@ -35,15 +33,24 @@ GIF Images
 | 권성욱 | 이정민 |
 | :--------: | :--------: |
 |   역할   |   역할    |
-|   챗봇 디자인    |   메인 페이지 인디자인    |
+|   챗봇 디자인    |   메인 페이지 디자인    |
 
 <br>
 
 ## 기술 스택
 
-| JavaScript | TypeScript |  React   |  Node   |
-| :--------: | :--------: | :------: | :-----: |
-|   ![js]    |   ![ts]    | ![react] | ![node] |
+### Language
+
+| Python | TypeScript |  Dart   |  C#   |  
+| :--------: | :--------: | :------: | :-----: | 
+|   ![js]    |   ![ts]    | ![react] | ![node] | 
+
+### Framework
+
+| React-Native | Flutter |  NestJS   |  Django   | C# Winform |
+| :--------: | :--------: | :------: | :-----: | :------: |
+|   ![react-native]    |   ![ts]    | ![react] | ![node] | fdaffs   |
+
 
 <br>
 
@@ -75,3 +82,6 @@ GIF Images
 [ts]: /images/stack/typescript.svg
 [react]: /images/stack/react.svg
 [node]: /images/stack/node.svg
+[react-native]: https://icons8.com/icon/58811/%EB%84%A4%EC%9D%B4%ED%8B%B0%EB%B8%8C%EC%97%90-%EB%B0%98%EC%9D%91%ED%95%98%EB%8B%A4
+
+
