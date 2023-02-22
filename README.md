@@ -78,10 +78,10 @@
 
 <!-- Stack Icon Refernces -->
 
-[js]: /images/stack/javascript.svg
-[ts]: /images/stack/typescript.svg
+[ts]: /readImage/icons8-RN.svg
 [react]: /images/stack/react.svg
 [node]: /images/stack/node.svg
 [react-native]: /readImage/icons8-RN.svg
+
 
 
