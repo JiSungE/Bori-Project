@@ -2,10 +2,7 @@
 /* eslint-disable react-native/no-inline-styles */
 
 import React from 'react';
-import {
-  Text,
-  View,
-} from 'react-native';
+import {Text, View} from 'react-native';
 import {UserTime} from '../Utils/UserTime';
 
 export const UserChat = ({text}: any) => {
@@ -29,7 +26,7 @@ export const UserChat = ({text}: any) => {
           shadowRadius: 3.84,
           elevation: 5,
         }}>
-        <Text style={{color:'white'}}>{text}</Text>
+        <Text style={{color: 'white'}}>{text}</Text>
       </View>
       <UserTime />
     </View>

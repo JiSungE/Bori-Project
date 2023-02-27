@@ -8,11 +8,11 @@ import { marker_info } from 'src/borimap/Entity/MarkerInfo.entity';
 
 export const typeORMConfig: TypeOrmModuleOptions = {
   type: 'postgres',
-  host: 'postgres.cyngkh3at8gu.ap-northeast-2.rds.amazonaws.com',
+  host: '',
   port: 5432,
-  username: 'postgres',
-  password: 'QKsksktnpdlzm.5689!',
-  database: 'postgres',
+  username: '',
+  password: '',
+  database: '',
   entities: [__dirname + '/../**/*.entity.{js,ts}',
   marker_info,
   mainform_info,

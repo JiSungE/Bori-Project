@@ -54,10 +54,12 @@ export class AdminMarkerRepository extends Repository<marker_info> {
     return true;
   }
 
+  // 모든 마커 정보를 반환
   async getAllMarker(): Promise<marker_info[]> {
     return await this.find();
   }
 
+  // ID로 마커 정보를 찾아서 반환
   async getMarkerById(id: number): Promise<marker_info> {
     const found = await this.findOne({ where: { id } });
 
@@ -68,6 +70,7 @@ export class AdminMarkerRepository extends Repository<marker_info> {
     return found;
   }
 
+  // marker_info 정보를 관리자에게 JSON으로 받아와 기존의 데이터를 새로운 데이터로 변환
   async updateMarkerInfo(updateMarkerInfo: marker_info): Promise<marker_info> {
     const marker: marker_info = await this.getMarkerById(updateMarkerInfo.id);
     marker.name = updateMarkerInfo.name;

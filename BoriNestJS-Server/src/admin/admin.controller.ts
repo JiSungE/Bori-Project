@@ -98,12 +98,5 @@ export class AdminController {
       ? 'Delete Complete'
       : `Not Found This Id ${id}`;
   }
-  //   @Post('/postmainformdelete')
-  //   deleteMainFormInfo(@Body('id', ParseIntPipe) id: number): string {
-  //     return this.adminService.deleteMainFormInfo(id)
-  //       ? 'Delete Complete'
-  //       : `Not Found This Id ${id}`;
-  //   }
 
-  //#endregion ~
 }

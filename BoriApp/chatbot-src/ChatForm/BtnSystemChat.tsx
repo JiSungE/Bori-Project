@@ -4,24 +4,19 @@
 import axios from 'axios';
 import React, {useEffect, useState} from 'react';
 
-import {
-  Image,
-  Text,
-  TouchableOpacity,
-  View,
-} from 'react-native';
+import {Image, Text, TouchableOpacity, View} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { MAPURLS, setNumber } from '../../App';
-import { setSelectedTab } from '../../Tabs';
-import { getData } from '../Utils/LocalStrorage';
+import {MAPURLS, setNumber} from '../../App';
+import {setSelectedTab} from '../../Tabs';
+import {getData} from '../Utils/LocalStrorage';
 import {SystemTime} from '../Utils/SytemTime';
 
-let KEYWORD:string = '';
-export const setKeyword = (text: string): void=>{
+let KEYWORD: string = '';
+export const setKeyword = (text: string): void => {
   KEYWORD = text;
 };
 
-export const getKeyword = (): string=>{
+export const getKeyword = (): string => {
   return KEYWORD;
 };
 
@@ -29,29 +24,31 @@ export const BtnSystemChat = ({keyword, answer}: any) => {
   const [markIcon, setMarkIcon] = useState<string>('bookmark-o');
   const [check, setCheck] = useState<boolean>(true);
 
-  const moveActivity = async ()=>{
+  const moveActivity = async () => {
     await setKeyword(keyword);
     setNumber(2);
     setSelectedTab(1);
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     getBookMarkByID();
-  },[]);
+  }, []);
 
-  const getBookMarkByID = async ()=>{
+  const getBookMarkByID = async () => {
     const accountData = await getData('account_info');
-    const getBookMark:any[] = await (await axios.post(`${MAPURLS}/bookmark`, {
-      'id' : accountData,
-    })).data;
+    const getBookMark: any[] = await (
+      await axios.post(`${MAPURLS}/bookmark`, {
+        id: accountData,
+      })
+    ).data;
 
-    for (const i of getBookMark){
-      const forBMData:any = i;
-      if (forBMData.tag === keyword){
-        if (forBMData.picket === 'Chat'){
-            setMarkIcon('bookmark');
-            setCheck(false);
-            return;
+    for (const i of getBookMark) {
+      const forBMData: any = i;
+      if (forBMData.tag === keyword) {
+        if (forBMData.picket === 'Chat') {
+          setMarkIcon('bookmark');
+          setCheck(false);
+          return;
         }
       }
     }
@@ -60,7 +57,7 @@ export const BtnSystemChat = ({keyword, answer}: any) => {
   };
 
   const BookMarkSave = async () => {
-    if (check === false){
+    if (check === false) {
       return;
     }
 
@@ -68,10 +65,10 @@ export const BtnSystemChat = ({keyword, answer}: any) => {
     const accountData = await getData('account_info');
 
     await axios.post(`${MAPURLS}/bookmark/createbookmark`, {
-        id: accountData,
-        tag: keyword,
-        picket: 'Chat',
-      });
+      id: accountData,
+      tag: keyword,
+      picket: 'Chat',
+    });
     setCheck(false);
   };
 
@@ -88,11 +85,12 @@ export const BtnSystemChat = ({keyword, answer}: any) => {
         />
         <Text style={{fontSize: 20, marginTop: 50}}>보리</Text>
         <TouchableOpacity onPress={() => BookMarkSave()}>
-                    <Icon
-                    color={'black'}
-                      name={markIcon}
-                      size={35}
-                      style={{marginTop:50, marginLeft:20}} />
+          <Icon
+            color={'black'}
+            name={markIcon}
+            size={35}
+            style={{marginTop: 50, marginLeft: 20}}
+          />
         </TouchableOpacity>
       </View>
       <TouchableOpacity
@@ -121,31 +119,30 @@ export const BtnSystemChat = ({keyword, answer}: any) => {
             borderBottomLeftRadius: 30,
             borderBottomRightRadius: 30,
           }}>
-        <Text style={{fontSize:15,lineHeight:24, color: 'black'}}>
-          {answer}
-        </Text>
-        <TouchableOpacity
-        onPress={()=> {
-          moveActivity();
-        }}
-        style={{
-          backgroundColor: 'white',
-          borderRadius: 20,
-          borderColor: '#544fc1',
-          borderWidth: 2,
-          marginTop: 30,
-          paddingTop: 5,
-          paddingBottom: 5,
-        }}>
-          <Text
-          style={{
-            alignItems: 'center',
-            textAlign: 'center',
-            color: '#544fc1',
-          }}
-          >
-            지도로 가기
+          <Text style={{fontSize: 15, lineHeight: 24, color: 'black'}}>
+            {answer}
           </Text>
+          <TouchableOpacity
+            onPress={() => {
+              moveActivity();
+            }}
+            style={{
+              backgroundColor: 'white',
+              borderRadius: 20,
+              borderColor: '#544fc1',
+              borderWidth: 2,
+              marginTop: 30,
+              paddingTop: 5,
+              paddingBottom: 5,
+            }}>
+            <Text
+              style={{
+                alignItems: 'center',
+                textAlign: 'center',
+                color: '#544fc1',
+              }}>
+              지도로 가기
+            </Text>
           </TouchableOpacity>
         </View>
       </TouchableOpacity>

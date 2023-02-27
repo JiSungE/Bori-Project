@@ -12,16 +12,12 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
-import { MAPURLS } from '../../App';
+import {MAPURLS} from '../../App';
 import styles from '../styles/styles';
 
-const IMAGES: string[] = [
+const IMAGES: string[] = [];
 
-];
-
-const IMAGEURLS: string[] = [
-
-];
+const IMAGEURLS: string[] = [];
 export const MainImg = () => {
   const [imgActive, setImgActive] = useState(0);
   const [temp, setTemp] = useState<boolean>(false);
@@ -59,13 +55,13 @@ export const MainImg = () => {
   return (
     <View>
       <View style={styles.center0_1}>
-      <Text style={styles.header0_3}>"우송대학교에 오신 여러분 환영합니다."</Text>
+        <Text style={styles.header0_3}>
+          "우송대학교에 오신 여러분 환영합니다."
+        </Text>
         <Text style={styles.header0_1}>디지털 시대!</Text>
         <Text style={styles.header0_2}>학생의 미래를 생각하는 대학</Text>
-        <Text style={styles.header0_4}/>
-
+        <Text style={styles.header0_4} />
       </View>
-
 
       <View>
         <ScrollView
@@ -73,7 +69,7 @@ export const MainImg = () => {
           showsHorizontalScrollIndicator={false}
           pagingEnabled
           horizontal>
-          {IMAGES.map((value,index) => {
+          {IMAGES.map((value, index) => {
             return (
               <TouchableOpacity
                 activeOpacity={1}

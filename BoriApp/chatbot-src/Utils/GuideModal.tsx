@@ -12,12 +12,13 @@ import {
   Text,
   View,
 } from 'react-native';
-import { storeData } from './LocalStrorage';
+import {storeData} from './LocalStrorage';
 //import { containsKey, getData, removeData, storeData } from "./localStrorage";
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
+// 챗봇이 실행되었을 때 보여지는 가이드 모달창
 export const GuideModal = () => {
   const date = new Date();
   const [modalVisible, setVisible] = useState(true);
@@ -45,12 +46,12 @@ export const GuideModal = () => {
                 <Pressable
                   style={[modalstyles.button30day]}
                   onPress={() => {
-                    storeData('day',  date.getDay() + 1);
-                    storeData('hours',  date.getHours());
-                    storeData('minutes',  date.getMinutes());
-                    storeData('seconds',  date.getSeconds());
+                    storeData('day', date.getDay() + 1);
+                    storeData('hours', date.getHours());
+                    storeData('minutes', date.getMinutes());
+                    storeData('seconds', date.getSeconds());
                     setModalVisible(!modalVisible);
-                    }}>
+                  }}>
                   <Text style={modalstyles.textStyle}>
                     하루동안 다시 보지 않기
                   </Text>
@@ -101,7 +102,7 @@ const modalstyles = StyleSheet.create({
   imageView: {
     width: WIDTH - 70,
     height: HEIGHT - 140,
-    backgroundColor:'white',
+    backgroundColor: 'white',
     marginTop: 10,
     marginBottom: 95,
     borderRadius: 30,

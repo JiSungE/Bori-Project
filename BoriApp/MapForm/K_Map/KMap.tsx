@@ -29,11 +29,9 @@ function KMap({webviewRef, map}: any) {
       setState(_state);
     } else if (e.nativeEvent.data === 'ar') {
       AR();
-    }
-    else if (e.nativeEvent.data === 'qr') {
+    } else if (e.nativeEvent.data === 'qr') {
       QR();
-    }
-    else {
+    } else {
       const _str = e.nativeEvent.data;
       setOpen(current => !current);
       setName(_str);
@@ -83,7 +81,7 @@ function KMap({webviewRef, map}: any) {
     } catch (error) {
       console.log(error);
     }
-  },[]);
+  }, []);
 
   const AR = useCallback(async () => {
     try {
@@ -96,7 +94,7 @@ function KMap({webviewRef, map}: any) {
   const send_screen = async (d_title: any) => {
     const latlng = new Array();
     for (let i of data) {
-      if ((i.name.split(' '))[0] === d_title) {
+      if (i.name.split(' ')[0] === d_title) {
         const _data = {
           picket: 'location',
         };
@@ -133,8 +131,7 @@ function KMap({webviewRef, map}: any) {
   });
 
   useEffect(() => {
-    if (a)
-    {
+    if (a) {
       const d_title: string = getKeyword();
       console.log(d_title);
       if (d_title !== '') {

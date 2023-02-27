@@ -14,34 +14,33 @@ import {
   View,
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { MAPURLS, setNumber } from '../../App';
-import { setKeyword } from '../../chatbot-src/ChatForm/BtnSystemChat';
-import { getOriginData, removeData } from '../../chatbot-src/Utils/LocalStrorage';
-import { setSelectedTab } from '../../Tabs';
+import {MAPURLS, setNumber} from '../../App';
+import {setKeyword} from '../../chatbot-src/ChatForm/BtnSystemChat';
+import {getOriginData, removeData} from '../../chatbot-src/Utils/LocalStrorage';
+import {setSelectedTab} from '../../Tabs';
 
 const WIDTH = Dimensions.get('window').width;
 const HEIGHT = Dimensions.get('window').height;
 
-export const Bori = ()=> {
+export const Bori = () => {
   const [visible, setVisible] = useState(false);
   const [store, setStore] = useState<any>([]);
   const ModalView = () => {
     setVisible(current => !current);
   };
 
-  const logout = async ()=>{
+  const logout = async () => {
     await removeData('account_info');
     setNumber(0);
     setSelectedTab(2);
   };
 
-  const moveActivity = async (keyword: string, picket: string)=>{
-    if (picket === 'Map'){
+  const moveActivity = async (keyword: string, picket: string) => {
+    if (picket === 'Map') {
       await setKeyword(keyword);
       setNumber(2);
       setSelectedTab(1);
-    }
-    else {
+    } else {
       await setKeyword(keyword);
       setNumber(3);
       setSelectedTab(3);
@@ -49,13 +48,27 @@ export const Bori = ()=> {
   };
 
   const Item = ({item}: any) => (
-    <TouchableOpacity onPress={()=>{moveActivity(item.tag, item.picket);}} key={item.tag}>
-    <View style={styles.list} key={item.tag}>
-      <Text style={styles.text}>{item.tag} - {item.picket}</Text>
-      <TouchableOpacity >
-        <Icon name="trash-o" size={25} color="white" onPress={()=>{DeleteBookmark(item);}} style={{marginTop:'auto', marginBottom:'auto' }} />
-      </TouchableOpacity>
-    </View>
+    <TouchableOpacity
+      onPress={() => {
+        moveActivity(item.tag, item.picket);
+      }}
+      key={item.tag}>
+      <View style={styles.list} key={item.tag}>
+        <Text style={styles.text}>
+          {item.tag} - {item.picket}
+        </Text>
+        <TouchableOpacity>
+          <Icon
+            name="trash-o"
+            size={25}
+            color="white"
+            onPress={() => {
+              DeleteBookmark(item);
+            }}
+            style={{marginTop: 'auto', marginBottom: 'auto'}}
+          />
+        </TouchableOpacity>
+      </View>
     </TouchableOpacity>
   );
 
@@ -65,24 +78,28 @@ export const Bori = ()=> {
 
   const LoadBookmark = async () => {
     try {
-        let getData: any;
-        const accountData = (await getOriginData('account_info'))?.replace(/"/g,'');
+      let getData: any;
+      const accountData = (await getOriginData('account_info'))?.replace(
+        /"/g,
+        '',
+      );
 
-        getData = await (await axios.post(`${MAPURLS}/bookmark`,
-       {
-        'id' : accountData,
-       })).data;
-        setStore(getData);
-      }
-      catch (error) {}
-    };
-const DeleteBookmark = async (item:any) => {
-    await (await axios.post(`${MAPURLS}/bookmark/deletebookmark`,
-       {
-        'pkid' : item.pkid,
-       })).data;
+      getData = await (
+        await axios.post(`${MAPURLS}/bookmark`, {
+          id: accountData,
+        })
+      ).data;
+      setStore(getData);
+    } catch (error) {}
+  };
+  const DeleteBookmark = async (item: any) => {
+    await (
+      await axios.post(`${MAPURLS}/bookmark/deletebookmark`, {
+        pkid: item.pkid,
+      })
+    ).data;
     LoadBookmark();
-};
+  };
 
   return (
     <>
@@ -100,7 +117,7 @@ const DeleteBookmark = async (item:any) => {
                       // borderRadius: 100,
                       overflow: 'visible',
                       borderWidth: 3,
-                      marginLeft:20,
+                      marginLeft: 20,
                     }}
                     source={{
                       uri: 'https://cdn-icons-png.flaticon.com/512/189/189254.png',
@@ -118,37 +135,37 @@ const DeleteBookmark = async (item:any) => {
         </View>
       ) : (
         <>
-        <View style={{position: 'absolute', bottom: 60, right: 20}}>
-          <TouchableOpacity onPress={ModalView}>
-            <Image
-              style={{
-                width: 40,
-                height: 40,
-                overflow: 'visible',
-                borderWidth: 3,
-              }}
-              source={{
-                uri: 'https://i.ibb.co/wWN2wtc/bookmark.png',
-              }}
-            />
-          </TouchableOpacity>
-        </View>
-        <View style={{position: 'absolute', bottom: 10, right: 20}}>
-          <TouchableOpacity onPress={logout}>
-            <Image
-              style={{
-                width: 40,
-                height: 40,
-                borderRadius: 100,
-                overflow: 'visible',
-                borderWidth: 3,
-              }}
-              source={{
-                uri: 'https://i.ibb.co/YZKPQyy/login.png',
-              }}
-            />
-          </TouchableOpacity>
-        </View>
+          <View style={{position: 'absolute', bottom: 60, right: 20}}>
+            <TouchableOpacity onPress={ModalView}>
+              <Image
+                style={{
+                  width: 40,
+                  height: 40,
+                  overflow: 'visible',
+                  borderWidth: 3,
+                }}
+                source={{
+                  uri: 'https://i.ibb.co/wWN2wtc/bookmark.png',
+                }}
+              />
+            </TouchableOpacity>
+          </View>
+          <View style={{position: 'absolute', bottom: 10, right: 20}}>
+            <TouchableOpacity onPress={logout}>
+              <Image
+                style={{
+                  width: 40,
+                  height: 40,
+                  borderRadius: 100,
+                  overflow: 'visible',
+                  borderWidth: 3,
+                }}
+                source={{
+                  uri: 'https://i.ibb.co/YZKPQyy/login.png',
+                }}
+              />
+            </TouchableOpacity>
+          </View>
         </>
       )}
     </>
@@ -159,7 +176,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: 'rgba(50,50,50,1)',
-
   },
   list: {
     borderRadius: 10,
@@ -169,7 +185,7 @@ const styles = StyleSheet.create({
     marginBottom: 10,
     marginLeft: 10,
     width: WIDTH - 20,
-    height:HEIGHT / 13,
+    height: HEIGHT / 13,
     color: 'white',
     backgroundColor: 'rgba(50,50,50,1)',
     flexDirection: 'row',
@@ -197,8 +213,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     marginLeft: 20,
     fontWeight: 'bold',
-    marginTop:'auto',
-    marginBottom:'auto',
+    marginTop: 'auto',
+    marginBottom: 'auto',
   },
 });
-

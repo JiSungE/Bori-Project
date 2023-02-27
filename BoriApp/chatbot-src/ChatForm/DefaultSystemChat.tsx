@@ -4,10 +4,9 @@ import React from 'react';
 import {Image, Text, TouchableOpacity, View} from 'react-native';
 import {SystemTime} from '../Utils/SytemTime';
 
-
-export const DefaultSystemChat = ({answer}:any)=>{
-    return (
-        <>
+export const DefaultSystemChat = ({answer}: any) => {
+  return (
+    <>
       <View
         style={{
           paddingHorizontal: 10,
@@ -20,25 +19,23 @@ export const DefaultSystemChat = ({answer}:any)=>{
         <Text style={{fontSize: 20, marginTop: 50}}>보리</Text>
       </View>
       <TouchableOpacity
-            activeOpacity = {1}
-            style={{
-              borderTopRightRadius: 30,
-              borderBottomLeftRadius: 30,
-              borderBottomRightRadius: 30,
-              backgroundColor: 'white',
-              margin: 5,
-              borderWidth: 1,
-              borderColor: '#c7c7c7',
-              shadowOpacity: 0.75,
-              shadowRadius: 3.84,
-              elevation: 5,
-              marginHorizontal: 40,
-              marginLeft: 30,
-            }
-          }
-      >
-        <View
+        activeOpacity={1}
         style={{
+          borderTopRightRadius: 30,
+          borderBottomLeftRadius: 30,
+          borderBottomRightRadius: 30,
+          backgroundColor: 'white',
+          margin: 5,
+          borderWidth: 1,
+          borderColor: '#c7c7c7',
+          shadowOpacity: 0.75,
+          shadowRadius: 3.84,
+          elevation: 5,
+          marginHorizontal: 40,
+          marginLeft: 30,
+        }}>
+        <View
+          style={{
             paddingVertical: 15,
             paddingHorizontal: 10,
             flexDirection: 'row',
@@ -48,12 +45,12 @@ export const DefaultSystemChat = ({answer}:any)=>{
             borderBottomLeftRadius: 30,
             borderBottomRightRadius: 30,
           }}>
-        <Text style={{fontSize:15,lineHeight:24, color: 'black'}}>
-          {answer}
-        </Text>
-    </View>
+          <Text style={{fontSize: 15, lineHeight: 24, color: 'black'}}>
+            {answer}
+          </Text>
+        </View>
       </TouchableOpacity>
       <SystemTime />
-        </>
-      );
+    </>
+  );
 };

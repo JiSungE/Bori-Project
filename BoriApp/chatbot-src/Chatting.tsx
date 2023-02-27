@@ -12,19 +12,19 @@ import {
   View,
   TouchableOpacity,
 } from 'react-native';
-import { getKeyword, setKeyword } from './ChatForm/BtnSystemChat';
+import {getKeyword, setKeyword} from './ChatForm/BtnSystemChat';
 import {IntroSystemChat} from './ChatForm/IntroSystemChat';
 import {UserChat} from './ChatForm/UserChat';
 import {AutoComplete} from './Utils/AutoComplete';
 import {GuideModal} from './Utils/GuideModal';
-import { getData } from './Utils/LocalStrorage';
+import {getData} from './Utils/LocalStrorage';
 import {SelectSystemChat} from './Utils/SelectSystemChat';
 import {SuggestedSearch} from './Utils/SuggestedSearch';
 // 현재 디스플레이의 WIDTH값
 const WIDTH = Dimensions.get('window').width;
 
 // 챗봇 모듈이 저장되어 있는 AWS DJANGO서버에 연결되는 URL
-export const CHATURL = 'http://ec2-3-38-8-151.ap-northeast-2.compute.amazonaws.com:8000';
+export const CHATURL = '';
 
 // input 디자인
 const styles = StyleSheet.create({
@@ -74,7 +74,7 @@ export const Chatting = ({}: any) => {
     let minutes: number = 0;
     let seconds: number = 0;
 
-    await getData('day').then((data)=> {
+    await getData('day').then(data => {
       day = data;
     });
     await getData('hours').then(data => {
@@ -122,13 +122,13 @@ export const Chatting = ({}: any) => {
     }
   };
 
-  useEffect(()=>{
+  useEffect(() => {
     const data = getKeyword();
-    if (data !== ''){
+    if (data !== '') {
       ExAddChatting(data);
     }
     setKeyword('');
-  },[]);
+  }, []);
 
   useEffect(() => {
     myGetData();
@@ -205,8 +205,7 @@ export const Chatting = ({}: any) => {
             alignItems: 'center',
             width: 50,
             height: 35,
-          }}
->
+          }}>
           <Image
             style={{height: 40, width: 40, alignItems: 'center', marginLeft: 5}}
             source={{

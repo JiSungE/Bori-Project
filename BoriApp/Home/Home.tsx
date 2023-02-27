@@ -1,27 +1,29 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable no-return-assign */
 /* eslint-disable react-hooks/exhaustive-deps */
-import React, { useEffect } from 'react';
-import { Scroll } from './components/Scroll';
-import { BackHandler, PermissionsAndroid, ToastAndroid } from 'react-native';
-import { Bori } from '../MapForm/K_Map/Bori';
+import React, {useEffect} from 'react';
+import {Scroll} from './components/Scroll';
+import {BackHandler, PermissionsAndroid, ToastAndroid} from 'react-native';
+import {Bori} from '../MapForm/K_Map/Bori';
 
 const Home = () => {
   const toastWithDurationHandler = () => {
-    ToastAndroid.show("'뒤로' 버튼을  한번 더 누르시면 종료됩니다.", ToastAndroid.SHORT);
+    ToastAndroid.show(
+      "'뒤로' 버튼을  한번 더 누르시면 종료됩니다.",
+      ToastAndroid.SHORT,
+    );
   };
 
   let time = 0; // 맨트 노출 시간
   const onAndroidBackPress = () => {
-      time += 1;
-        toastWithDurationHandler(); // 뒤로가기 토스트 바
-      if (time === 1) {
-        setTimeout(() => time = 0, 2000);
-      }
-      else if (time === 2) {
-        BackHandler.exitApp(); // 어플 종료
-        return false;
-      }
+    time += 1;
+    toastWithDurationHandler(); // 뒤로가기 토스트 바
+    if (time === 1) {
+      setTimeout(() => (time = 0), 2000);
+    } else if (time === 2) {
+      BackHandler.exitApp(); // 어플 종료
+      return false;
+    }
     return true;
   };
 
@@ -40,8 +42,8 @@ const Home = () => {
   }, []);
   return (
     <>
-    <Scroll/>
-    <Bori/>
+      <Scroll />
+      <Bori />
     </>
   );
 };

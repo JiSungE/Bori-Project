@@ -18,6 +18,7 @@ from chat_.models.intent.IntentModel import IntentModel
 from chat_.qna.create_embedding_data import CreateEmbeddingData
 from chat_.utils.FindAnswer import FindAnswer
 import BoriApp.DBControl as DB
+
 def create_keyword(request):
     body =  json.loads(request.body.decode('utf-8'))
     keyword:str = body["keyword"]
@@ -44,7 +45,7 @@ def setting(request):
                    userdic=f'{bori_path}/chat_/utils/user_dic.tsv')
 
     # 의도 파악 모델
-    # BData.intent = IntentModel(model_name=f'{bori_path}/chat_/models/intent_model2.h5', preprocess=BData.preprocess)
+    BData.intent = IntentModel(model_name=f'{bori_path}/chat_/models/intent_model2.h5', preprocess=BData.preprocess)
 
     #CSV 파일 로드
     BData.df = pd.read_csv(f'{bori_path}/chat_/qna/answer_data.csv')

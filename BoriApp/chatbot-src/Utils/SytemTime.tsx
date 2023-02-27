@@ -11,6 +11,8 @@ import {
   TextInput,
   View,
 } from 'react-native';
+
+// 시스템 채팅에 보여지는 시간
 export const SystemTime = () => {
   const [ampm, setAmPm] = useState<string>('오후');
   const date: Date = new Date();
@@ -21,7 +23,8 @@ export const SystemTime = () => {
   }, []);
   return (
     <>
-      <Text style={{marginLeft: 35, marginTop: 10, marginBottom: 10, fontSize: 10}}>
+      <Text
+        style={{marginLeft: 35, marginTop: 10, marginBottom: 10, fontSize: 10}}>
         {ampm}
         {` ${date.getHours() >= 12 ? date.getHours() - 12 : date.getHours()}`}:
         {date.getMinutes() < 10 ? `0${date.getMinutes()}` : date.getMinutes()}

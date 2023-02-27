@@ -57,7 +57,6 @@ export class AdminService {
   deleteMainFormInfo(id: number): Promise<boolean> {
     return this.mainformInfoRepository.deleteMainFormInfo(id);
   }
-
   //endregion
 
   //region subform
@@ -78,8 +77,7 @@ export class AdminService {
   }
 
   deleteSubFormInfo(id: number): Promise<boolean> {
-    return this.subformInfoRepository.deleteMainFormInfo(id);
+    return this.subformInfoRepository.deleteSubFormInfo(id);
   }
-
   //endregion
 }

@@ -1,7 +1,6 @@
 /* eslint-disable prettier/prettier */
 import { CustomRepository } from 'src/Custom/typeorm-ex.decorator';
 import { DeleteResult, Repository } from 'typeorm';
-import { CreateMainFormInfoDto } from '../Dto/CreateMainFormInfo.dto';
 import { subform_info } from '../Entity/Subform.entity';
 import { CreateSubFormInfoDto } from '../Dto/CreateSubFormnfo.dto';
 import { NotFoundException } from '@nestjs/common';
@@ -15,6 +14,7 @@ export class SubFormInfoRepository extends Repository<subform_info> {
     return await this.find();
   }
 
+  // createSubFormInfoDto를 JSON으로 받아 데이터베이스에 저장
   async createSubFormInfo(
     createSubFormInfoDto: CreateSubFormInfoDto,
   ): Promise<subform_info> {
@@ -30,9 +30,11 @@ export class SubFormInfoRepository extends Repository<subform_info> {
     return subform;
   }
 
+  // id로 subform 데이터를 검색
   async getSubFormById(id: number): Promise<subform_info> {
     const found = await this.findOne({ where: { id } });
 
+    // 찾지 못했다면 NotFoundException 에러 발생
     if (!found) {
       throw new NotFoundException(`Can't find Board with id ${id}`);
     }
@@ -40,8 +42,12 @@ export class SubFormInfoRepository extends Repository<subform_info> {
     return found;
   }
 
-  async deleteMainFormInfo(id: number): Promise<boolean> {
+  // id로 subform 데이터를 검색 후 삭제
+  async deleteSubFormInfo(id: number): Promise<boolean> {
     const result: DeleteResult = await this.delete(id);
+
+    // 만약 데이터베이스에 변경사항이 없다면 
+    // 제거되지 않은 것이므로 false 반환 아니라면 true
     if (result.affected === 0) {
       return false;
     }
@@ -49,6 +55,8 @@ export class SubFormInfoRepository extends Repository<subform_info> {
     return true;
   }
 
+  // 관리자가 특정 id의 정보 변경을 목적으로 subform_info 데이터를 JSON으로 넘겨주고
+  // 데이터베이스에서 id 정보를 확인 후 데이터 변경 -> 저장
   async updateSubFormInfo(
     updateSubFormInfo: subform_info,
   ): Promise<subform_info> {

@@ -17,7 +17,7 @@ import {
 } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import {MAPURLS} from '../../App';
-import { getData, storeData } from '../../chatbot-src/Utils/LocalStrorage';
+import {getData, storeData} from '../../chatbot-src/Utils/LocalStrorage';
 import {modalstyles} from './styles/modalstyles';
 
 const WIDTH = Dimensions.get('window').width;
@@ -41,23 +41,25 @@ export const Screen = ({_state, _name, map}: any) => {
     showdata();
   }, [state]);
 
-  useEffect(()=>{
+  useEffect(() => {
     getBookMarkByID();
-  },[text]);
+  }, [text]);
 
-  const getBookMarkByID = async ()=>{
+  const getBookMarkByID = async () => {
     const accountData = await getData('account_info');
-    const getBookMark:any[] = await (await axios.post(`${MAPURLS}/bookmark`, {
-      'id' : accountData,
-    })).data;
+    const getBookMark: any[] = await (
+      await axios.post(`${MAPURLS}/bookmark`, {
+        id: accountData,
+      })
+    ).data;
 
-    for (const i of getBookMark){
-      const forBMData:any = i;
-      if (forBMData.tag === text[0]){
-        if (forBMData.picket === 'Map'){
-            setMarkIcon('bookmark');
-            setCheck(false);
-            return;
+    for (const i of getBookMark) {
+      const forBMData: any = i;
+      if (forBMData.tag === text[0]) {
+        if (forBMData.picket === 'Map') {
+          setMarkIcon('bookmark');
+          setCheck(false);
+          return;
         }
       }
     }
@@ -70,15 +72,15 @@ export const Screen = ({_state, _name, map}: any) => {
   };
 
   const BookMarkSave = async () => {
-    if (check === false){
+    if (check === false) {
       return;
     }
     const accountData = await getData('account_info');
     await axios.post(`${MAPURLS}/bookmark/createbookmark`, {
-        id: accountData,
-        tag: text[0],
-        picket: 'Map',
-      });
+      id: accountData,
+      tag: text[0],
+      picket: 'Map',
+    });
     setMarkIcon('bookmark');
   };
 
@@ -139,7 +141,6 @@ export const Screen = ({_state, _name, map}: any) => {
   return (
     <>
       {state ? (
-
         <View style={modalstyles.centeredView}>
           <Modal
             animationType="none"
@@ -152,49 +153,48 @@ export const Screen = ({_state, _name, map}: any) => {
                 <View style={modalstyles.modalTopView}>
                   <View style={modalstyles.buttonOutView}>
                     <View style={modalstyles.BulidingNum}>
-                    {/* <Text style={modalstyles.header0_5} /> */}
+                      {/* <Text style={modalstyles.header0_5} /> */}
                       <Text style={modalstyles.BulidingNumText}>{text[0]}</Text>
                     </View>
                     <View style={{alignItems: 'flex-end', flex: 1}}>
-                    <Pressable
-                        onPress={() => onPress()}>
+                      <Pressable onPress={() => onPress()}>
                         <Text style={modalstyles.CloseStyle}>닫기</Text>
-                        </Pressable>
+                      </Pressable>
                     </View>
                   </View>
                 </View>
                 <Text style={modalstyles.BulidingNameText}>{text[1]}</Text>
-                <View style={{flexDirection: 'row', marginTop:-10}}>
-                    <Image
-                      source={{uri: data.imgname}}
-                      style={modalstyles.image}
-                    />
+                <View style={{flexDirection: 'row', marginTop: -10}}>
+                  <Image
+                    source={{uri: data.imgname}}
+                    style={modalstyles.image}
+                  />
                   <View>
-                  <Text style={modalstyles.AddressText}>
-                      {data.address}
-                    </Text>
+                    <Text style={modalstyles.AddressText}>{data.address}</Text>
                   </View>
                 </View>
                 <Text
                   style={{
                     textAlign: 'center',
                     color: 'white',
-                  }} />
+                  }}
+                />
                 <View style={{flexDirection: 'row'}}>
-                <Text style={modalstyles.FloorAndDepartmentLine} />
-                <Text style={modalstyles.FloorAndDepartmentText}>층별 시설 및 학과</Text>
+                  <Text style={modalstyles.FloorAndDepartmentLine} />
+                  <Text style={modalstyles.FloorAndDepartmentText}>
+                    층별 시설 및 학과
+                  </Text>
                   <TouchableOpacity onPress={() => BookMarkSave()}>
                     <Icon
-                    color={'black'}
+                      color={'black'}
                       name={markIcon}
                       size={35}
-                      style={{marginLeft: WIDTH - 270}} />
+                      style={{marginLeft: WIDTH - 270}}
+                    />
                   </TouchableOpacity>
                 </View>
                 {/* ------------------------------------------------------------------------------------------- */}
-                <ScrollView style={{borderRadius:10}}>
-                  {_Screen()}
-                </ScrollView>
+                <ScrollView style={{borderRadius: 10}}>{_Screen()}</ScrollView>
                 {/* ------------------------------------------------------------------------------------------- */}
               </View>
             </View>

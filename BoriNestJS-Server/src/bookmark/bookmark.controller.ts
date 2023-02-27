@@ -24,11 +24,6 @@ export class BookmarkController {
     return this.bookmarkService.getBookmark(id);
   }
 
-   /*
-      createBookmarkInfoDto 받아서
-      새롭게 데이터를 등록하는 BookmarkService함수에에 전달하는 EndPoint
-    */
-
   @Post('/createbookmark')
   @UsePipes(ValidationPipe)
   createBookMarkInfo(

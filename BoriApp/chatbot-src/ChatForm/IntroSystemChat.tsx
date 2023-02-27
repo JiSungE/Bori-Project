@@ -1,16 +1,11 @@
 /* eslint-disable prettier/prettier */
 /* eslint-disable react-native/no-inline-styles */
 import React from 'react';
-import {
-  Image,
-  Text,
-  View,
-  TouchableOpacity,
-} from 'react-native';
+import {Image, Text, View, TouchableOpacity} from 'react-native';
 import {MenuButtons} from '../Utils/MenuButtons';
 import {SystemTime} from '../Utils/SytemTime';
 
-export const IntroSystemChat = ({setText}:any) => {
+export const IntroSystemChat = ({setText}: any) => {
   return (
     <>
       <View
@@ -24,21 +19,37 @@ export const IntroSystemChat = ({setText}:any) => {
           style={{height: 110, width: 110}}
           source={require('../assets/Bori2.png')}
         />
-        <View style={{
-          borderColor: '#f7f6f7',
-          borderWidth: 1,
-          borderRadius: 15,
-          backgroundColor: '#f7f7ff',
-          shadowColor: 'black',
-        shadowOffset: {
-          width: 20,
-          height: 20,
-        },
-        shadowOpacity: 1,
-        elevation: 10,
-      }}>
-          <Text style={{fontSize: 20, margin: 10,  color: 'black', fontWeight: '900'}}>보리</Text>
-          <Text style={{marginTop: 30, fontSize: 15, margin: 10, color: 'black', fontWeight: '500' }}>
+        <View
+          style={{
+            borderColor: '#f7f6f7',
+            borderWidth: 1,
+            borderRadius: 15,
+            backgroundColor: '#f7f7ff',
+            shadowColor: 'black',
+            shadowOffset: {
+              width: 20,
+              height: 20,
+            },
+            shadowOpacity: 1,
+            elevation: 10,
+          }}>
+          <Text
+            style={{
+              fontSize: 20,
+              margin: 10,
+              color: 'black',
+              fontWeight: '900',
+            }}>
+            보리
+          </Text>
+          <Text
+            style={{
+              marginTop: 30,
+              fontSize: 15,
+              margin: 10,
+              color: 'black',
+              fontWeight: '500',
+            }}>
             안녕하세요😀저는 우송대학교{'\n'}
             챗봇 보리예요!{'\n'}
             궁금한 것을 물어보세요!{'\n'}
@@ -53,25 +64,22 @@ export const IntroSystemChat = ({setText}:any) => {
         </View>
       </View>
       <TouchableOpacity
-      activeOpacity = {1}
-      style={{
-        borderRadius: 20,
-        backgroundColor: 'white',
-        margin: 5,
-        borderWidth: 1,
-        borderColor: '#c7c7c7',
-        shadowColor: 'black',
-        shadowOffset: {
-          width: 20,
-          height: 20,
-        },
-        shadowOpacity: 1,
-        elevation: 10,
-        marginHorizontal: 40,
-      }
-
-    }
-      >
+        activeOpacity={1}
+        style={{
+          borderRadius: 20,
+          backgroundColor: 'white',
+          margin: 5,
+          borderWidth: 1,
+          borderColor: '#c7c7c7',
+          shadowColor: 'black',
+          shadowOffset: {
+            width: 20,
+            height: 20,
+          },
+          shadowOpacity: 1,
+          elevation: 10,
+          marginHorizontal: 40,
+        }}>
         <MenuButtons setText={setText} />
       </TouchableOpacity>
       <SystemTime />
